@@ -16,7 +16,7 @@
                 
                 <table class="tbl-full">
                     <tr>
-                        <th>S.N.</th>
+                        <th>No.</th>
                         <th>Full Name</th>
                         <th>Username</th>
                     </tr>
