@@ -9,7 +9,6 @@
     <body>
         <div class="login">
             <h1 class="text-center">Login</h1>
-
             <?php
                 if(isset($_SESSION['login']))
                 {
@@ -26,7 +25,7 @@
             Password: <br>
             <input type="password" name="password" placeholder ="Enter Password"><br><br>
 
-            <input type="submit" name="submit" value="login" class="btn-primary">
+            <input type="submit" name="submit" value="Login" class="btn-primary">
             <br><br>
             </form>
         </div>

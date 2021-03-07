@@ -3,5 +3,5 @@
 
     session_destroy();
 
-    header('location:'.SITEURL.'login.php');
+    header('location:'.SITEURL.'admin/login.php');
 ?>

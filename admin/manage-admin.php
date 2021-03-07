@@ -36,15 +36,15 @@
 
                     <tr>
                         <td>3. </td>
-                        <td>Unknown</td>
-                        <td>Unknown</td>
+                        <td>Moh Rizki Zidane</td>
+                        <td>Rizki</td>
                         <td>
                     </tr>
 
                     <tr>
                         <td>4. </td>
-                        <td>Unknown</td>
-                        <td>Unknown</td>
+                        <td>Elisabeth Hutabarat</td>
+                        <td>Elisabeth</td>
                         <td>
                     </tr>
 

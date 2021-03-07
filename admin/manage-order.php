@@ -8,7 +8,7 @@
 
             <table class="tbl-full">
                 <tr>
-                    <th>S.N.</th>
+                    <th>No.</th>
                     <th>Full Name</th>
                     <th>Username</th>
                     <th>Actions</th>
@@ -19,8 +19,8 @@
                     <td>Unknown</td>
                     <td>Unknown</td>
                     <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
+                        <a href="#" class="btn-secondary">Update Order</a>
+                        <a href="#" class="btn-danger">Delete Order</a>
                     </td>
                 </tr>
 
@@ -29,8 +29,8 @@
                     <td>Unknown</td>
                     <td>Unknown</td>
                     <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
+                        <a href="#" class="btn-secondary">Update Order</a>
+                        <a href="#" class="btn-danger">Delete Order</a>
                     </td>
                 </tr>
 
@@ -39,8 +39,8 @@
                     <td>Unknown</td>
                     <td>Unknown</td>
                     <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
+                        <a href="#" class="btn-secondary">Update Order</a>
+                        <a href="#" class="btn-danger">Delete Order</a>
                     </td>
                 </tr>
             </table>
