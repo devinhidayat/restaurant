@@ -86,11 +86,11 @@
                 $sql2 = "INSERT INTO tbl_food SET
                     title = '$title',
                     description = '$description',
-                    price = '$price',
+                    price = $price,
                     image_name = '$image_name'
                 ";
 
-                $res2 = mysqli_query($conn, $sql);
+                $res2 = mysqli_query($conn, $sql2);
 
                 if($res2 == true) {
                     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
