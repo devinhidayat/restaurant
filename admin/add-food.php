@@ -58,27 +58,19 @@
                             {
                                 while($row=mysqli_fetch_assoc($res))
                                 {
-                                    $id = $row['id'];
-                                    $title = $row['title'];
+                                    $category_title = $row['title'];
+                                    $category_id = $row['id'];
+
                                     ?>
-
-                                    <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
-
+                                    <option value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
                                     <?php
                                 }
                             }
                             else
                             {
-                                ?>
-                                <option value="0">No Category Found</option>
-                                <?php
+                                echo "<option value='0'>Category not available.</option>";
                             }
                         ?>
-
-                            <option value="1">Appetizer</option>
-                            <option value="2">Main Course</option>
-                            <option value="3">Dessert</option>
-                        </select>
                     </td>
                 </tr>
 

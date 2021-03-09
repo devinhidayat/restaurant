@@ -15,6 +15,7 @@
         $description = $row2['description'];
         $price = $row2['price'];
         $current_image = $row2['image_name'];
+        $current_category = $row2['category_id'];
     }
     else
     {
@@ -78,6 +79,39 @@
                 </tr>
 
                 <tr>
+                    <td>Category: </td>
+                    <td>
+                        <select name="category">
+
+                        <?php
+                            $sql = "SELECT * FROM tbl_category";
+
+                            $res = mysqli_query($conn, $sql);
+
+                            $count = mysqli_num_rows($res);
+
+
+                            if($count>0)
+                            {
+                                while($row=mysqli_fetch_assoc($res))
+                                {
+                                    $category_title = $row['title'];
+                                    $category_id = $row['id'];
+
+                                    ?>
+                                    <option value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "<option value='0'>Category not available.</option>";
+                            }
+                        ?>
+                    </td>
+                </tr>
+
+                <tr>
                     <td>
                             <input type="hidden" name ="id" value= "<?php echo $id; ?>">
                             <input type="hidden" name ="current_image" value= "<?php echo $current_image; ?>">
@@ -97,6 +131,8 @@
                     $description = $_POST['description'];
                     $price = $_POST['price'];
                     $current_image = $_POST['current_image'];
+                    $category = $_POST['category'];
+
 
                     if(isset($_FILES['image']['name']))
                     {
@@ -135,6 +171,10 @@
                                     die();
                                 }
                             }
+                        } 
+                        else
+                        {
+                        $image_name = $current_image;
                         }
                     }
                     else
@@ -146,7 +186,8 @@
                         title = '$title',
                         description ='$description',
                         price = $price,
-                        image_name = '$image_name'
+                        image_name = '$image_name',
+                        category_id = '$category'
                         WHERE id= $id
                     ";
 
