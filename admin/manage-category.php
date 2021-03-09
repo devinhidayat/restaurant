@@ -1,82 +1,127 @@
 <?php include('partials/menu.php') ?>
 
-        <div class="main-content">
-            <div class="wrapper">
-                <h1>Manage Category</h1>
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Category</h1>
 
-                <br /> <br />
+        <br /> <br />
 
-                <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
+        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
 
-                <br /><br /> <br />
+        <br /><br /> <br />
 
-                <table class="tbl-full">
-                    <tr>
-                        <th>No.</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
+        <?php
+            if(isset($_SESSION['add']))
+            {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
 
-                    <?php 
+            if(isset($_SESSION['remove']))
+            {
+                echo $_SESSION['remove'];
+                unset($_SESSION['remove']);
+            }
 
-                        $sql = "SELECT * FROM tbl_category";
+            if(isset($_SESSION['delete']))
+            {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
 
-                        $res = mysqli_query($conn, $sql);
+            if(isset($_SESSION['no-category-found']))
+            {
+                echo $_SESSION['no-category-found'];
+                unset($_SESSION['no-category-found']);
+            }
 
-                        $count = mysqli_num_rows($res);
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update'];
+                unset($_SESSION['update']);
+            }
 
-                        $no = 1;
+            if(isset($_SESSION['upload']))
+            {
+                echo $_SESSION['upload'];
+                unset($_SESSION['upload']);
+            }
 
-                        if($count>0) {
-                            while($row=mysqli_fetch_assoc($res)) {
-                                $id = $row['id'];
-                                $title = $row['title'];
-                                $image_name = $row['image_name'];
+            if(isset($_SESSION['failed-remove']))
+            {
+                echo $_SESSION['failed-remove'];
+                unset($_SESSION['failed-remove']);
+            }
+        ?>
 
-                                ?>
+        <table class="tbl-full">
+            <tr>
+                <th>No.</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
 
-                                <tr>
-                                    <td><?php echo $no++ ?></td>
-                                    <td><?php echo $title ?></td>
+            <?php 
 
-                                    <td>
-                                        <?php
-                                            if($image_name!="") {
-                                                ?>
-                                                <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" width="100px">
+                $sql = "SELECT * FROM tbl_category";
 
-                                                <?php
-                                            }
-                                            else {
-                                                echo "<div class='error'>Image not Added.</div>";
-                                            }
-                                        ?>
-                                    </td>
+                $res = mysqli_query($conn, $sql);
 
-                                    <td>
-                                        <a href="#" class="btn-secondary">Update Category</a>
-                                        <a href="#" class="btn-danger">Delete Category</a>
-                                    </td>
-                                </tr>
+                $count = mysqli_num_rows($res);
 
+                $no = 1;
+
+                if($count>0) {
+                    while($row=mysqli_fetch_assoc($res)) {
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
+
+                        ?>
+
+                        <tr>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $title ?></td>
+
+                            <td>
                                 <?php
-                            }
-                        }
-                        else {
-                            ?>
+                                    if($image_name!="") {
+                                        ?>
 
-                            <tr>
-                                <td colspan="6"><div class="error">No Category Added.</div></td>
-                            </tr>
+                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" width="100px">
 
-                            <?php
-                        }
+                                        <?php
+                                    }
+                                    else {
+                                        echo "<div class='error'>Image not Added.</div>";
+                                    }
+                                ?>
+                            </td>
+
+                            <td>
+                                <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update Category</a>
+                                <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
+                            </td>
+                        </tr>
+
+                        <?php
+                    }
+                }
+                else {
                     ?>
 
-                </table>
-                
-            </div>
-        </div>
+                    <tr>
+                        <td colspan="6"><div class="error">No Category Added.</div></td>
+                    </tr>
+
+                    <?php
+                }
+            ?>
+
+        </table>
+        
+    </div>
+</div>
 
 <?php include('partials/footer.php') ?>
