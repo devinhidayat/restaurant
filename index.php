@@ -1,5 +1,4 @@
 <?php include('partials-front/menu.php'); ?>
-    <!-- Navbar Section Ends Here -->
 
     <!-- fOOD SEARCH Section Starts Here -->
     <section class="food-search text-center">
@@ -35,12 +34,13 @@
                         $image_name = $row['image_name'];
 
                         ?>
+
                         <a href="category-foods.html">
                             <div class="box-3 float-container">
                             <?php
                                 if($image_name=="")
                                 {
-                                    echo "<div class = 'error;>Image not available</div>";
+                                    echo "<div class = 'error'>Image not available</div>";
                                 }
                                 else
                                 {
@@ -49,7 +49,8 @@
                                     <?php
                                 }
                             ?>
-                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                            
+                            <h3 class="float-text text-white"><?php echo $title; ?></h3>
                          </div>
                         </a>
 
@@ -68,119 +69,63 @@
     </section>
     <!-- Categories Section Ends Here -->
 
-
-
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
+            <?php
 
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
+                $sql2 = "SELECT * FROM tbl_food LIMIT 6";
 
-                    <a href="order.html" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
+                $res2 = mysqli_query($conn, $sql2);
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
+                $count2 = mysqli_num_rows($res2);
 
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
+                if($count2>0) {
+                    while($row=mysqli_fetch_assoc($res2)) {
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $price = $row['price'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
+                        ?>
+                        
+                        <div class="food-menu-box">
+                            <div class="food-menu-img">
+                                <?php
+                                    if($image_name=="") {
+                                        echo "<div class='error'>Image not available.</div>";
+                                    }
+                                    else {
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <?php
+                                    }
+                                ?>
+                            </div>
 
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
+                            <div class="food-menu-desc">
+                                <h4><?php echo $title; ?></h4>
+                                <p class="food-price">Rp.<?php echo $price; ?></p>
+                                <p class="food-detail">
+                                    <?php echo $description; ?>
+                                </p>
+                                <br>
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Burger" class="img-responsive img-curve">
-                </div>
+                                <a href="order.html" class="btn btn-primary">Order Now</a>
+                            </div>
+                        </div>
 
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-momo.jpg" alt="Chicke Hawain Momo" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">-</p>
-                    <p class="food-detail">
-                        -
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-
-            <div class="clearfix"></div>
-
+                        <?php
+                    }
+                }
+                else {
+                    echo "<div class='error'>Food not available.</div>";
+                }
+            ?>
             
+            <div class="clearfix"></div>
 
         </div>
 

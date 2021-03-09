@@ -1,6 +1,4 @@
-
 <?php include('partials-front/menu.php'); ?>
-
 
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
@@ -33,7 +31,7 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/category<?php echo $image_name; ?>" alt="Pizza" class ="img-responsive img-curve">
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class ="img-responsive img-curve">
                                     <?php
                                 }
                             ?>
@@ -51,11 +49,9 @@
                 }
             ?>
 
-            
-
             <div class="clearfix"></div>
         </div>
     </section>
     <!-- Categories Section Ends Here -->
 
-    <?php include('partials-front/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>
