@@ -90,6 +90,7 @@
 
                             $count = mysqli_num_rows($res);
 
+
                             if($count>0)
                             {
                                 while($row=mysqli_fetch_assoc($res))
@@ -98,7 +99,7 @@
                                     $category_id = $row['id'];
 
                                     ?>
-                                    <option <?php if($current_category==$category_id) {echo "selected";} ?> value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
+                                    <option value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
                                     <?php
                                 }
                             }
