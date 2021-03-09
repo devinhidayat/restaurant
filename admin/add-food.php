@@ -128,7 +128,7 @@
                     title = '$title',
                     description = '$description',
                     price = $price,
-                    image_name = '$image_name'
+                    image_name = '$image_name',
                     category_id = '$category'
                 ";
 
