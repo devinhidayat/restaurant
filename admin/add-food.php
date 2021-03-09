@@ -43,6 +43,46 @@
                 </tr>
 
                 <tr>
+                    <td>Category: </td>
+                    <td>
+                        <select name="category">
+
+                        <?php
+                            $sql = "SELECT * FROM tbl_category";
+
+                            $res = mysqli_query($conn, $sql);
+
+                            $count = mysqli_num_rows($res);
+
+                            if($count>0)
+                            {
+                                while($row=mysqli_fetch_assoc($res))
+                                {
+                                    $id = $row['id'];
+                                    $title = $row['title'];
+                                    ?>
+
+                                    <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
+
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                <option value="0">No Category Found</option>
+                                <?php
+                            }
+                        ?>
+
+                            <option value="1">Appetizer</option>
+                            <option value="2">Main Course</option>
+                            <option value="3">Dessert</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
                     <td colspan="2">
                         <input type="submit" name="submit" value="Add Food" class="btn-secondary">
                     </td>
@@ -56,6 +96,7 @@
                 $title = $_POST['title'];
                 $description = $_POST['description'];
                 $price = $_POST['price'];
+                $category = $_POST['category'];
 
                 if(isset($_FILES['image']['name'])) {
                     $image_name = $_FILES['image']['name'];
@@ -88,6 +129,7 @@
                     description = '$description',
                     price = $price,
                     image_name = '$image_name'
+                    category_id = '$category'
                 ";
 
                 $res2 = mysqli_query($conn, $sql2);
