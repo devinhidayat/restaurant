@@ -45,7 +45,7 @@
 
                 if($count2>0)
                 {
-                    while($row=mysqli_fetch_assoc($res2))
+                    while($row2=mysqli_fetch_assoc($res2))
                     {
                         $title = $row2['title'];
                         $price = $row2['price'];
