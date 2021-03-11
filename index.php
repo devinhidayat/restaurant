@@ -120,7 +120,19 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                <?php
+                                    if($_SESSION=="")
+                                    {
+                                        echo "<div class = 'error'>Please Login First</div>";
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <?
+                                    }
+                                ?>
+
                             </div>
                         </div>
 

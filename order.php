@@ -79,6 +79,7 @@
                     $qty = $_POST['qty'];
 
                     $total = $price * $qty;
+                    date_default_timezone_set("Asia/Jakarta");
                     $order_date = date("Y-m-d h:i:sa");
                     $status = "Ordered";
                     $customer_name = $_POST['full-name'];
