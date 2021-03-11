@@ -46,7 +46,7 @@
         $count = mysqli_num_rows($res);
 
         if($count==1)
-        {
+        {   
             $_SESSION['login'] = "<div class = 'success text-center' style='color: black'><h1>Welcome, $username</h1></div>";
             header('location:'.SITEURL);
         }

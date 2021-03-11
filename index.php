@@ -129,14 +129,16 @@
                                 <br>
 
                                 <?php
-                                    if($_SESSION=="")
+                                    if (isset($_SESSION['username']) & isset($_SESSION['password']))
                                     {
-                                        echo "<div class = 'error'>Please Login First</div>";
+                                        ?>
+                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <?php
                                     }
                                     else
                                     {
                                         ?>
-                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <a href="<?php echo SITEURL; ?>login.php" class="btn btn-primary">Please Login First</a>
                                         <?php
                                     }
                                 ?>
