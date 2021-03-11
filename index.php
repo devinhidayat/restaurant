@@ -1,5 +1,13 @@
 <?php include('partials-front/menu.php'); ?>
 
+    <?php
+        if(isset($_SESSION['login']))
+        {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
+    ?>
+
     <!-- fOOD SEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
@@ -129,7 +137,7 @@
                                     {
                                         ?>
                                             <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
-                                        <?
+                                        <?php
                                     }
                                 ?>
 
@@ -154,4 +162,4 @@
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
-<?php include('partials-front/footer.php');
+<?php include('partials-front/footer.php'); ?>
