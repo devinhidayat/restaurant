@@ -4,7 +4,7 @@
         if(isset($_SESSION['login']))
         {
             echo $_SESSION['login'];
-            unset($_SESSION['login']);
+            // unset($_SESSION['login']);
         }
     ?>
 
@@ -129,7 +129,7 @@
                                 <br>
 
                                 <?php
-                                    if (isset($_SESSION['username']) & isset($_SESSION['password']))
+                                    if (isset($_SESSION['login']))
                                     {
                                         ?>
                                             <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
