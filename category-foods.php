@@ -63,7 +63,7 @@
                                         else
                                         {
                                             ?>
-                                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" class="img-responsive img-curve">
                                             <?php
                                         }
                                     ?>
@@ -78,7 +78,20 @@
                                     </p>
                                     <br>
 
-                                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                    <?php
+                                    if (isset($_SESSION['login']))
+                                    {
+                                        ?>
+                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                        <a href="<?php echo SITEURL; ?>login.php" class="btn btn-primary">Please Login First</a>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         <?php

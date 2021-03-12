@@ -34,7 +34,24 @@
                         <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>login.php">Login</a>
+                        <?php
+                            if (isset($_SESSION['login']))
+                            {
+                                ?>
+                                    <a href="<?php echo SITEURL; ?>login.php">Logout</a>
+                                    <?php session_destroy(); ?>
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                <a href="<?php echo SITEURL; ?>login.php">Login</a>
+                                <?php
+                            }
+                        ?>
+                    </li>
+                    <li>
+                        <a href="<?php echo SITEURL; ?>admin/login.php">Login Admin</a>
                     </li>
                 </ul>
             </div>

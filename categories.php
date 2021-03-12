@@ -31,12 +31,10 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class ="img-responsive img-curve">
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class ="img-responsive img-curve" height="300px">
                                     <?php
                                 }
                             ?>
-
-                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
                             </div>
                         </a>
 

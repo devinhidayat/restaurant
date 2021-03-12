@@ -60,12 +60,11 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class="img-responsive img-curve" width="150px" height="300px">
                                     <?php
                                 }
                             ?>
                             
-                            <h3 class="float-text text-white"><?php echo $title; ?></h3>
                          </div>
                         </a>
 
@@ -114,7 +113,7 @@
                                     }
                                     else {
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
@@ -157,10 +156,6 @@
             <div class="clearfix"></div>
 
         </div>
-
-        <p class="text-center">
-            <a href="#">See All Foods</a>
-        </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->
 

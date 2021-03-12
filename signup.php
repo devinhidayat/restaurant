@@ -35,7 +35,10 @@
             <input type="date" name="tgl_lahir" required><br><br>
 
             Jenis Kelamin: <br>
-            <input type="text" name="gender" placeholder ="Jenis Kelamin" required><br><br>
+            <select name="gender" required>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select><br><br>
 
             <input type="submit" name="submit" value="Sign Up" class="btn-primary">
             <br><br>
