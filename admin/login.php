@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Login - Food Order System</title>
-        <link rel ="sytlesheet" href ="admin.css">
+        <link rel ="stylesheet" href ="admin.css">
     </head>
 
     <body>
