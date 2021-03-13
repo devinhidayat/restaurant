@@ -1,9 +1,9 @@
 <?php include('../config/constants.php'); ?>
-l
+
 <html>
     <head>
         <title>Login - Food Order System</title>
-        <link rel ="sytlesheet" href ="admin.css">
+        <link rel ="sytlesheet" href ="../css/admin.css">
     </head>
 
     <body>
