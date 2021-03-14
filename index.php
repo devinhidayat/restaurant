@@ -1,10 +1,18 @@
 <?php include('partials-front/menu.php'); ?>
 
+    <?php
+        if(isset($_SESSION['login']))
+        {
+            echo $_SESSION['login'];
+            // unset($_SESSION['login']);
+        }
+    ?>
+
     <!-- fOOD SEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
             
-            <form action="food-search.html" method="POST">
+            <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
@@ -12,6 +20,13 @@
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
+
+    <?php
+        if(isset($_SESSION['order'])) {
+            echo $_SESSION['order'];
+            unset($_SESSION['order']);
+        }
+    ?>
 
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
@@ -35,7 +50,7 @@
 
                         ?>
 
-                        <a href="category-foods.html">
+                        <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
                             <div class="box-3 float-container">
                             <?php
                                 if($image_name=="")
@@ -45,12 +60,11 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class="img-responsive img-curve" width="150px" height="300px">
                                     <?php
                                 }
                             ?>
                             
-                            <h3 class="float-text text-white"><?php echo $title; ?></h3>
                          </div>
                         </a>
 
@@ -99,7 +113,7 @@
                                     }
                                     else {
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
@@ -113,7 +127,21 @@
                                 </p>
                                 <br>
 
-                                <a href="order.html" class="btn btn-primary">Order Now</a>
+                                <?php
+                                    if (isset($_SESSION['login']))
+                                    {
+                                        ?>
+                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                        <a href="<?php echo SITEURL; ?>login.php" class="btn btn-primary">Please Login First</a>
+                                        <?php
+                                    }
+                                ?>
+
                             </div>
                         </div>
 
@@ -128,11 +156,7 @@
             <div class="clearfix"></div>
 
         </div>
-
-        <p class="text-center">
-            <a href="#">See All Foods</a>
-        </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
-<?php include('partials-front/footer.php');
+<?php include('partials-front/footer.php'); ?>

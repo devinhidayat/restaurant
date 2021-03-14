@@ -21,7 +21,7 @@
                         $image_name = $row['image_name'];
 
                         ?>
-                        <a href="category-foods.html">
+                        <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
                             <div class="box-3 float-container">
                             <?php
                                 if($image_name=="")
@@ -31,12 +31,10 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class ="img-responsive img-curve">
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class ="img-responsive img-curve" height="300px">
                                     <?php
                                 }
                             ?>
-
-                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
                             </div>
                         </a>
 

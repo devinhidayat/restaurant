@@ -1,9 +1,9 @@
-<?php include('../config/constants.php'); ?>
+<?php include('config/constants.php'); ?>
 
 <html>
     <head>
         <title>Login - Food Order System</title>
-        <link rel ="stylesheet" href ="../css/login.css">
+        <link rel ="stylesheet" href ="css/login.css">
     </head>
 
     <body>
@@ -20,13 +20,14 @@
 
             <form action="" method="POST" class="text-center">
             Username: <br>
-            <input type="text" name="username" placeholder ="Enter Username"><br><br>
+            <input type="text" name="username" placeholder ="Username" required><br><br>
 
             Password: <br>
-            <input type="password" name="password" placeholder ="Enter Password"><br><br>
+            <input type="password" name="password" placeholder ="Password" required><br><br>
 
             <input type="submit" name="submit" value="Login" class="btn-primary">
             <br><br>
+            <a href="signup.php">Create an account</a>
             </form>
         </div>
     </body>
@@ -38,21 +39,21 @@
         $username = $_POST['username'];
         $password = md5($_POST['password']);
 
-        $sql = "SELECT * FROM tbl_admin WHERE username ='$username' AND password='$password'";
+        $sql = "SELECT * FROM tbl_user WHERE username ='$username' AND password='$password'";
 
         $res = mysqli_query($conn, $sql);
 
         $count = mysqli_num_rows($res);
 
         if($count==1)
-        {
-            $_SESSION['login'] = "<div class = 'success'></div>";
-            header('location:'.SITEURL.'admin/');
+        {   
+            $_SESSION['login'] = "<div class = 'success text-center' style='color: black'><h1>Welcome, $username</h1></div>";
+            header('location:'.SITEURL);
         }
         else
         {
             $_SESSION['login'] = "<div class = 'error'>Login Failed.</div>";
-            header('location:'.SITEURL.'admin/login.php');
+            header('location:'.SITEURL.'login.php');
         }
     }
 ?>
