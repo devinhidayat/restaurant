@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Sign Up - Food Order System</title>
-        <link rel ="stylesheet" href ="admin.css">
+        <link rel ="stylesheet" href ="css/signup.css">
     </head>
 
     <body>
@@ -19,22 +19,22 @@
             <br><br>
 
             <form action="" method="POST" class="text-center">
-            First Name: <br>
+            <label>First Name</label> <br>
             <input type="text" name="first_name" placeholder ="First Name" required><br><br>
 
-            Last Name: <br>
+            <label>Last Name</label> <br>
             <input type="text" name="last_name" placeholder ="Last Name" required><br><br>
 
-            Username: <br>
+            <label>Username</label> <br>
             <input type="text" name="username" placeholder ="Username" required><br><br>
 
-            Password: <br>
+            <label>Password</label> <br>
             <input type="password" name="password" placeholder ="Password" required><br><br>
 
-            Tanggal Lahir: <br>
+            <label>Tanggal Lahir</label> <br>
             <input type="date" name="tgl_lahir" required><br><br>
 
-            Jenis Kelamin: <br>
+            <label>Jenis Kelamin</label> <br>
             <select name="gender" required>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>

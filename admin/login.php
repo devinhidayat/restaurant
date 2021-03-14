@@ -19,10 +19,10 @@
             <br><br>
 
             <form action="" method="POST" class="text-center">
-            Username: <br>
+            <label>Username</label> <br>
             <input type="text" name="username" placeholder ="Enter Username"><br><br>
 
-            Password: <br>
+            <label>Password</label><br>
             <input type="password" name="password" placeholder ="Enter Password"><br><br>
 
             <input type="submit" name="submit" value="Login" class="btn-primary">
